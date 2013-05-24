@@ -4,8 +4,7 @@ This is the final project on RoR.
 
 
 == Main Function
- Must-have feature
- 1 Item display feature
+1 Item display feature
 - Display Yahoo Shopping items by category (limited to 5 categories and 100 items)
 - Display user's registered items
 
