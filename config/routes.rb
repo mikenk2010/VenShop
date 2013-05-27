@@ -1,4 +1,6 @@
 VenShop::Application.routes.draw do
+  get "products/new"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -14,6 +16,8 @@ VenShop::Application.routes.draw do
   match '/category', :to=> 'static_pages#category'
   match '/search', :to=> 'static_pages#search'
   match '/item', :to=> 'static_pages#item'
+
+  match '/products', to: 'products#new'
 
 
   # The priority is based upon order of creation:

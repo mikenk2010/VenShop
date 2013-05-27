@@ -1,0 +1,17 @@
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <div class="headline-newest">Category 1</div>
+      <div class="list-Browse-NewsRv">
+        <div class="header-search">
+
+          <%= form_for(:product) do |f| %>
+          <%= f.text_field :url, class: "search_field"%>
+          <%= f.submit "Get data", class: "btn btn-large btn-primary height_btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
