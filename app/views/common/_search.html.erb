@@ -1,0 +1,9 @@
+<div class="header-search">
+
+  <%= form_for(:search) do |f| %>
+
+
+  <%= f.text_field :name, class: "search_field"%>
+  <%= f.submit "Search", class: "btn btn-large btn-primary height_btn" %>
+  <% end %>
+</div>

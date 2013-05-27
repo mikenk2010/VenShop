@@ -9,11 +9,21 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+  <!--- START HERE -->
   <div class="container">
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+
+    <%= render 'common/search' %>
+
+    <div class="container-home">
+       <%= render 'common/menu' %>
+
+    </div>
+
+
+
+    <!--- END HERE -->
     <%= yield %>
+    <div class="clear" />
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
   </div>
