@@ -1,8 +1,10 @@
 VenShop::Application.routes.draw do
-  get "products/new"
+
+  get "getproducts/new"
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :products
 
   root :to=> 'static_pages#home'
 

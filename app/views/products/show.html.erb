@@ -1,0 +1,22 @@
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <div class="headline-newest">Category 1</div>
+      <div class="list-Browse-NewsRv">
+        <div class="bl-image"><a href="/item">
+          <img src="<%= @product.img %>" /></a>
+        </div>
+        <div class="price"><%= @product.price %>
+          <div class="newest-datetime">27/05/2013 - 11:01</div>
+          <div class="newest-datetime">ID: <%= @product.id %></div>
+        </div>
+        <div class="title-Br-NewsRv"><a href="/item"><%= @product.title %></a>
+        </div>
+        <div class="Br-NewsRv-cont">
+          <%= @product.desc %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
