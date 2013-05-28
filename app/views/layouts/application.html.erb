@@ -10,22 +10,25 @@
 <body>
   <%= render 'layouts/header' %>
   <!--- START HERE -->
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
   <div class="container">
 
     <%= render 'common/search' %>
 
     <div class="container-home">
-       <%= render 'common/menu' %>
+     <%= render 'common/menu' %>
 
-    </div>
+   </div>
 
 
 
-    <!--- END HERE -->
-    <%= yield %>
-    <div class="clear" />
-    <%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
-  </div>
+   <!--- END HERE -->
+   <%= yield %>
+   <div class="clear" />
+   <%= render 'layouts/footer' %>
+   <%= debug(params) if Rails.env.development? %>
+ </div>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<h1>All Users</h1>
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <div class="headline-newest"></div>
+      <div class="list-Browse-NewsRv">
+
+        <ul>
+          <% @user.each do |user| %>
+          <li>
+            <%=link_to user.name, user%>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

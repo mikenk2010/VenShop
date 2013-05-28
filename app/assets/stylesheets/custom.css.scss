@@ -206,7 +206,7 @@ input {
 .container-home .catagory{
   width: 200px;
   float :left;
-  height: 400px;
+  height: auto;
 
 }
 
@@ -405,7 +405,7 @@ input {
 
 }
 
-.item-id, .item-price, .item-date, .item-buying{
+.item-id, .item-date, .item-buying{
  float: left;
  width: 300px;
  margin-right: 8px;

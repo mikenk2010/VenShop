@@ -1,0 +1,31 @@
+
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <h1>Get data </h1>
+      <div class="list-Browse-NewsRv">
+
+
+       <div class="span6 offset3" style="margin-left:0px">
+         <% @url.each do |url| %>
+         <div>
+          <div>ID: <%= url['ProductId'] %></div>
+          <div>Title: <%= url['Name'] %></div>
+          <div>Desc: <%= url['Description'] %></div>
+          <div>Image Medium: <%= url['Image']['Medium'] %></div>
+          <div>Price: <%= url['Price']['_value'] %> JPY</div>
+          <div>Cata ID: <%= url['Category']['Current']['Id'] %></div>
+          <div>Stock: <%= url['Availability'] %></div>
+          <br>
+          <span>--------------------</span>
+        </div>
+
+        <% end%>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

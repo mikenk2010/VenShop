@@ -1,0 +1,22 @@
+<h1>All products</h1>
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <div class="headline-newest"></div>
+      <div class="list-Browse-NewsRv">
+
+        <ul>
+          <% @product.each do |product| %>
+          <li>
+            <%= product.title %>
+          </li>
+          <% end %>
+        </ul>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
