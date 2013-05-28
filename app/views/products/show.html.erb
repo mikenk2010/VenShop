@@ -2,21 +2,37 @@
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <div class="headline-newest">Category 1</div>
+      <div class="item-name"><%=@product.title%></div>
       <div class="list-Browse-NewsRv">
-        <div class="bl-image"><a href="/item">
-          <img src="<%= @product.img %>" /></a>
+        <div class="bl-image2"><img src="<%=@product.img%>" />
         </div>
-        <div class="price"><%= @product.price %>
-          <div class="newest-datetime">27/05/2013 - 11:01</div>
-          <div class="newest-datetime">ID: <%= @product.id %></div>
+        <div class="price-detail">
+          <div class="cell-item">
+            <div class="item-id">Price:</div>
+            <div class="item-id-content"><%=@product.price%></div>
+          </div>
+        </br>
+        <div class="cell-item">
+          <div class="item-id">Stock:</div>
+          <div class="item-id-content"><%=@product.date%></div>
         </div>
-        <div class="title-Br-NewsRv"><a href="/item"><%= @product.title %></a>
-        </div>
-        <div class="Br-NewsRv-cont">
-          <%= @product.desc %>
-        </div>
+      </br>
+
+      <div class="cell-item">
+        <div class="item-id"></div></br>
+        <div class="item-id-content"><a href="#">Add to Cart</a></div>
       </div>
-    </div>
+    </br>
   </div>
+</div>
+
+<div class="clear"></div>
+<h3>Decription item</h3>
+<div class="desc-item">
+ <%=@product.desc%>
+</div>
+</div>
+</div>
+
+</div>
 </div>

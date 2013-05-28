@@ -29,13 +29,12 @@ class GetproductsController < ApplicationController
       date = product['Availability']
 
 
-
-      #Add to SQL lite
-      if Product.create(price: title, date: date, desc: desc, img: img, categoryid: categoryid, title: title)
-        flash[:success] = "Success import date"
-      else
-        flash[:success] = "Fail import date to SQLite"
-      end
+     # Add to SQL lite
+      # if Product.create(price: price, date: date, desc: desc, img: img, categoryid: categoryid, title: title)
+      #   flash[:success] = "Success import date"
+      # else
+      #   flash[:success] = "Fail import date to SQLite"
+      # end
     end
   end
 

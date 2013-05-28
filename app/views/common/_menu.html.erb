@@ -1,11 +1,12 @@
 <div class="catagory">
   <div class="headline-category">Category</div>
-  <ul>
-    <% Product.all.each do |product| %>
-    <li>
-      <a href="#"><%= product.categoryid %></a>
-    </li>
-    <% end %>
-  </ul>
+   <ul>
+            <%  Category.all.each do |category| %>
+            <li>
+             <a href="#"><%=link_to category.name, category %></a>
+            </li>
+            <% end %>
+          </ul>
 
 </div>
+

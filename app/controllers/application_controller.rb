@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+   # $category = Category.all
   include SessionsHelper
 
   # Force signout to prevent CSRF attacks
@@ -7,4 +8,6 @@ class ApplicationController < ActionController::Base
     sign_out
     super
   end
+
+
 end

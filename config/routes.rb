@@ -1,10 +1,11 @@
 VenShop::Application.routes.draw do
 
-  get "category/new"
+
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :products
+  resources :category
 
   root :to=> 'static_pages#home'
 
@@ -15,10 +16,11 @@ VenShop::Application.routes.draw do
   match '/products',    :to=> 'static_pages#products'
   match '/about',   :to=> 'static_pages#about'
   match '/contact', :to=> 'static_pages#contact'
-  match '/category', :to=> 'static_pages#category'
+
   match '/search', :to=> 'static_pages#search'
   match '/item', :to=> 'static_pages#item'
 
+  match '/category', :to=> 'static_pages#category'
 
   #match '/products', to: 'products#new'
 
