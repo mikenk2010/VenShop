@@ -1,7 +1,4 @@
 VenShop::Application.routes.draw do
-
-
-
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :products
@@ -9,9 +6,9 @@ VenShop::Application.routes.draw do
 
   root :to=> 'static_pages#home'
 
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   match '/products',    :to=> 'static_pages#products'
   match '/about',   :to=> 'static_pages#about'
