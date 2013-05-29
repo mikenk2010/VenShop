@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    UserMailer.welcome_email(@user).deliver
+
+      # format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+      # format.json { render :json => @user, :status => :created, :location => @user }
   end
 
   def new
@@ -12,6 +16,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
+
   end
 
   def update
@@ -28,32 +33,32 @@ class UsersController < ApplicationController
     #@user = User.find(params[:id])
   end
 
-    def create
-      @user = User.new(user_params)
-      if @user.save
-        flash[:success] = "Welcome to the Ven Shop"
-        redirect_to @user
-      else
-        render 'new'
-      end
-    end
-
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
-
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "Welcome to the Ven Shop"
+      redirect_to @user
+    else
+      render 'new'
     end
   end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user)
+  end
+end
 
 #   def create
 #     @user = User.new(user_params)

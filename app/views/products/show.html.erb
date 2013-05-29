@@ -20,19 +20,23 @@
 
       <div class="cell-item">
         <div class="item-id"></div></br>
-        <div class="item-id-content"><a href="#">Add to Cart</a></div>
+        <div class="item-id-content">
+
+          <%= form_tag cart_path  do %>
+          <p>
+            <%= hidden_field_tag :id, @product.id %>
+            <%= submit_tag "Add to cart" %>
+          </p>
+          <% end %>
+        </div>
       </div>
-    </br>
+    </div>
   </div>
+  <div class="clear"></div>
+  <h3>Decription item</h3>
+  <div class="desc-item">
+   <%=@product.desc%>
+ </div>
 </div>
 
-<div class="clear"></div>
-<h3>Decription item</h3>
-<div class="desc-item">
- <%=@product.desc%>
-</div>
-</div>
-</div>
 
-</div>
-</div>

@@ -10,6 +10,7 @@ gem 'jquery-rails', '2.0.2'
 gem "json", "1.8.0"
 gem "solr-ruby", "0.0.8"
 gem 'sunspot_rails', '1.3.3'
+gem "sunspot_solr", "2.0.0"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

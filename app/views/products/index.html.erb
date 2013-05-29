@@ -1,18 +1,22 @@
+<div class="header-search">
+</div>
 <div class="container-home">
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <div class="headline-newest">List all products</div>
-     <% Product.all.each do |product| %>
+      <div class="headline-newest" style="color:#fff">List products -
+      <%= @count %>  </div>
+     <% @product.each do |product| %>
+
       <div class="list-Browse-NewsRv">
-        <div class="bl-image"><a href="/item">
+        <div class="bl-image"><a href="/products/<%= product.id %>">
           <img src="<%= product.img %>" />
         </a>
         </div>
         <div class="price"><%= product.price %> Y
           <div class="newest-datetime"><%= product.date %></div>
         </div>
-        <div class="title-Br-NewsRv"><a href="/item"><%= product.title %></a>
+        <div class="title-Br-NewsRv"><a href="/products/<%= product.id %>"><%= product.title %></a>
         </div>
         <div class="Br-NewsRv-cont">
           <%= product.desc %>

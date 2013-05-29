@@ -1,9 +1,11 @@
 <div class="header-search">
 
-  <%= form_for(:search) do |f| %>
 
+<%= form_tag products_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
-  <%= f.text_field :name, class: "search_field"%>
-  <%= f.submit "Search", class: "btn btn-large btn-primary height_btn" %>
-  <% end %>
 </div>

@@ -2,9 +2,11 @@
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <div class="headline-newest">Category 1</div>
-      <%#= Product.find_by_categoryid(params[:id]).size %>
+      <div class="headline-newest" style="color:#fff"><%= @category.name %></div>
       <% Product.find_all_by_categoryid(params[:id]).each do |product| %>
+
+      <%#= Product.find_by_categoryid(params[:id]).size %>
+
       <div class="list-Browse-NewsRv">
         <div class="bl-image"><a href="/products/<%= product.id %>">
           <img src="<%= product.img %>" />

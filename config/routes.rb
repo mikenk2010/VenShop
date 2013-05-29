@@ -1,8 +1,10 @@
 VenShop::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :products
   resources :category
+  resources :products
+
+
 
   root :to=> 'static_pages#home'
 
@@ -10,7 +12,10 @@ VenShop::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  match '/products',    :to=> 'static_pages#products'
+  match '/products',    :to=> 'static_pages#products', via: 'get'
+  match '/products/addtocart',    :to=> 'static_pages#products'
+
+
   match '/about',   :to=> 'static_pages#about'
   match '/contact', :to=> 'static_pages#contact'
 
@@ -22,6 +27,22 @@ VenShop::Application.routes.draw do
   #match '/products', to: 'products#new'
 
   match '/getdata', to:'getproducts#index'
+
+  match '/cart', :to=> 'static_pages#cart'
+
+
+
+
+# resources :advertiser
+#     match '/adv_management', to: 'adv_management#index'
+#     match '/adv_management/info', to: 'adv_management#info'
+#     match '/adv_management/edit', to: 'adv_management#edit'
+#     match '/adv_management/review', to: 'adv_management#review'
+#     match '/adv_management/update', to: 'adv_management#update'
+#     match '/adv_management/list', to: 'adv_management#list'
+#     match '/adv_management/detail/:id', to: 'adv_management#adv_detail'
+#     match '/adv_management/user_apply', to: 'adv_management#adv_user_appl
+
 
 
   # The priority is based upon order of creation:
