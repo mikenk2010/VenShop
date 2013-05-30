@@ -4,39 +4,40 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    UserMailer.welcome_email(@user).deliver
+    #UserMailer.welcome_email(@user).deliver
 
       # format.html { redirect_to(@user, :notice => 'User was successfully created.') }
       # format.json { render :json => @user, :status => :created, :location => @user }
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def index
-    @user = User.all
-
-  end
-
-  def update
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated"
-      sign_in @user
-      redirect_to @user
-    else
-      render 'edit'
     end
-  end
 
-  def edit
+    def new
+      @user = User.new
+    end
+
+    def index
+      @user = User.all
+
+    end
+
+    def update
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile updated"
+        sign_in @user
+        redirect_to @user
+      else
+        render 'edit'
+      end
+    end
+
+    def edit
     #@user = User.find(params[:id])
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Welcome to the Ven Shop"
+      sign_in @user
+      flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
       render 'new'

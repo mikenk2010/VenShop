@@ -3,9 +3,11 @@
     <div class="clear" />
     <div class="newest">
       <p>Check Out - Clear All - Continue Shopping</p>
-      <div class="title-search">Your cart</div>
 
 
+      <% if params[:id].nil? %>
+      <div class="title-search">Your don't have any item in cart</div>
+      <% else %>
       <div class="list-Browse-NewsRv">
         <div class="bl-image"><a href="/item"><img src="<%=@product['img']%>" /></a>
         </div>
@@ -14,16 +16,16 @@
         </div>
         <div class="title-Br-NewsRv"><a href="/item">
           <%=@product['title']%>
-          </a>
-        </div>
-        <div class="Br-NewsRv-cont">
-          <%=@product['desc']%>
-        </div>
+        </a>
       </div>
-
-
-
+      <div class="Br-NewsRv-cont">
+        <%=@product['desc']%>
+      </div>
     </div>
+    <% end %>
+
+
   </div>
+</div>
 </div>
 

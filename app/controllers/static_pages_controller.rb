@@ -17,7 +17,13 @@ class StaticPagesController < ApplicationController
 
   def cart
     # return render text: params[:id]
-   @product = Product.find(params[:id])
+   #@product = Product.find(params[:id])
+   #@product.to_i = 0
+   if params[:id].nil?
+      flash[:success] = "Your don't have any item in cart"
+   else
+     @product = Product.find(params[:id])
+   end
 
   end
 
