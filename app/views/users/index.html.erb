@@ -1,20 +1,31 @@
-<h1>All Users</h1>
 <div class="container-home">
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <div class="headline-newest"></div>
+      <div class="headline-newest">All Users</div>
+      <%= will_paginate %>
+      <% @users.each do |user| %>
       <div class="list-Browse-NewsRv">
 
-        <ul>
-          <% @user.each do |user| %>
-          <li>
-            <%=link_to user.name, user%>
-          </li>
-          <% end %>
-        </ul>
+       <%= gravatar_for user %>
+
+
+       <div class="price">
+        <div class="newest-datetime"></div>
+      </div>
+      <div class="title-Br-NewsRv">
+
+        <%= link_to user.name, user %>
+
+      </div>
+      <div class="Br-NewsRv-cont">
+
       </div>
     </div>
+
+    <% end %>
+    <%= will_paginate %>
   </div>
 </div>
 
+</div>
