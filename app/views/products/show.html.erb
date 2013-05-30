@@ -27,6 +27,10 @@
             <%= hidden_field_tag :id, @product.id %>
             <%= submit_tag "Add to cart" %>
           </p>
+          <% if current_user.admin? %>
+            <%= link_to "Delete", method: :delete,
+            data: { confirm: "You sure delete product ?" } %>
+            <% end %>
           <% end %>
         </div>
       </div>

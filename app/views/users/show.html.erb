@@ -6,6 +6,14 @@
         <%= gravatar_for @user %>
         Name: <i style=color:red><%= @user.name %></i><br>
         Email: <i style=color:red><%= @user.email %></i>
+        Admin role: <i style=color:red>
+        <% if @user.admin == true%>
+            Yes
+        <% else %>
+          Not admin
+        <% end %>
+
+      </i>
       </h1>
     </section>
   </aside>
