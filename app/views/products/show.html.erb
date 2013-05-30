@@ -25,13 +25,16 @@
           <%= form_tag cart_path  do %>
           <p>
             <%= hidden_field_tag :id, @product.id %>
-            <%= submit_tag "Add to cart" %>
+            <%= submit_tag "Add to cart",class: "btn btn-large btn-primary" %>
           </p>
-          <% if current_user.admin? %>
-            <%= link_to "Delete", method: :delete,
+          <% end %>
+            <span style="font-size:14px">
+           <% if !current_user.blank? && current_user.admin? %>
+            <%= link_to "Delete", @product, method: :delete,
             data: { confirm: "You sure delete product ?" } %>
             <% end %>
-          <% end %>
+          </span>
+
         </div>
       </div>
     </div>

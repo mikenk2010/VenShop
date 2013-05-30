@@ -1,8 +1,12 @@
 VenShop::Application.routes.draw do
+
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :category
+
   resources :products
+
 
 
 
@@ -24,11 +28,15 @@ VenShop::Application.routes.draw do
 
   match '/category', :to=> 'static_pages#category'
 
-  #match '/products', to: 'products#new'
-
   match '/getdata', to:'getproducts#index'
 
   match '/cart', :to=> 'static_pages#cart'
+
+  match '/checkout_show', to: 'checkouts#show'
+  match '/checkout_finish', to: 'checkouts#finish'
+
+
+
 
 
 
@@ -102,4 +110,5 @@ VenShop::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+
 

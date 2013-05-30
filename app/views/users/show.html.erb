@@ -1,11 +1,11 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span4" style="width:500px">
     <section>
       <h1>
         <%= gravatar_for @user %>
         Name: <i style=color:red><%= @user.name %></i><br>
-        Email: <i style=color:red><%= @user.email %></i>
+        Email: <i style=color:red><%= @user.email %></i><br>
         Admin role: <i style=color:red>
         <% if @user.admin == true%>
             Yes

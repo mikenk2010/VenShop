@@ -2,30 +2,40 @@
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <p>Check Out - Clear All - Continue Shopping</p>
+     <% if params[:id].nil? %>
+     <div class="title-search">Your don't have any item in cart</div>
+     <% else %>
+     <div style="float:left; margin:right:10px; margin-bottom:-15px">
 
+      <%= form_tag '/checkout_show'  do %>
 
-      <% if params[:id].nil? %>
-      <div class="title-search">Your don't have any item in cart</div>
-      <% else %>
-      <div class="list-Browse-NewsRv">
-        <div class="bl-image"><a href="/item"><img src="<%=@product['img']%>" /></a>
+            <%= hidden_field_tag :id, @product.id %>
+            <%= submit_tag "Checkout", class: "btn btn-large btn-primary" %>
+
+          <% end %>
+     </div>
+     <div class="list-Browse-NewsRv">
+
+      <div class="bl-image"><img src="<%=@product['img']%>" />
+      </div>
+      <div class="price"><%=@product['price']%>
+        <div class="newest-datetime"><%=@product['date']%></div>
+        <div class="newest-datetime"><a href="#">
+          <%= link_to "Remove",  method: :delete,
+          data: { confirm: "You sure remove product ?" } %></a></div>
         </div>
-        <div class="price"><%=@product['price']%>
-          <div class="newest-datetime"><%=@product['date']%></div>
-        </div>
-        <div class="title-Br-NewsRv"><a href="/item">
+        <div class="title-Br-NewsRv">
           <%=@product['title']%>
-        </a>
+
+        </div>
+        <div class="Br-NewsRv-cont">
+          <%=@product['desc']%>
+        </div>
       </div>
-      <div class="Br-NewsRv-cont">
-        <%=@product['desc']%>
-      </div>
+      <% end %>
+
+
     </div>
-    <% end %>
-
-
   </div>
-</div>
 </div>
 

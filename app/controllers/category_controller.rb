@@ -31,6 +31,12 @@ class CategoryController < ApplicationController
   def show
     @category = Category.find(params[:id])
   end
+
+  def destroy
+    Product.find(params[:id]).destroy
+    flash[:success] = "Delete item"
+    redirect_to category_url
+  end
 end
 
 

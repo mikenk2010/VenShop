@@ -15,8 +15,8 @@
         </div>
         <div class="price"><%= product.price %> Y
           <div class="newest-datetime"><%= product.date %>
-            <% if current_user.admin? %>
-            | <%= link_to "delete", method: :delete,
+            <% if !current_user.blank? && current_user.admin? %>
+            | <%= link_to "delete", product, method: :delete,
             data: { confirm: "You sure delete product ?" } %>
             <% end %>
 
@@ -32,3 +32,4 @@
     </div>
   </div>
 </div>
+
