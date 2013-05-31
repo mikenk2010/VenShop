@@ -12,9 +12,10 @@ class GetproductsController < ApplicationController
     #   @url = d
     # end
     @url = []
-    content = open("http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXpIMzBsMUQyTk55dSZkPVlXazlZWGxzYjNoWU0yVW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9MzI-&category_id=635&sort=-sold").read
+
+    content = open("http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXpIMzBsMUQyTk55dSZkPVlXazlZWGxzYjNoWU0yVW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9MzI-&category_id=5298&sort=-sold").read
     result = JSON.parse(content)
-    #@url = parsed_data["ResultSet"]["totalResultsAvailable"]
+
     total = result["ResultSet"]["totalResultsReturned"].to_i - 1
 
     for i in 0..total
@@ -28,13 +29,13 @@ class GetproductsController < ApplicationController
       categoryid = product['Category']['Current']['Id']
       date = product['Availability']
 
-
-     #Add to SQL lite
       if Product.create(price: price, date: date, desc: desc, img: img, categoryid: categoryid, title: title)
         flash[:success] = "Success import date"
       else
         flash[:success] = "Fail import date to SQLite"
       end
+
+
     end
   end
 

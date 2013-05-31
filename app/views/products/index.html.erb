@@ -4,32 +4,45 @@
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <div class="headline-newest" style="color:#fff">List products -
-        <%= @count %>  </div>
-        <% @product.each do |product| %>
+      <div class="headline-newest" style="color:#fff">List products - <%= @count %>
 
-        <div class="list-Browse-NewsRv">
-          <div class="bl-image"><a href="/products/<%= product.id %>">
-            <img src="<%= product.img %>" />
-          </a>
-        </div>
-        <div class="price"><%= product.price %> Y
-          <div class="newest-datetime"><%= product.date %>
-            <% if !current_user.blank? && current_user.admin? %>
-            | <%= link_to "delete", product, method: :delete,
-            data: { confirm: "You sure delete product ?" } %>
-            <% end %>
 
-          </div>
-        </div>
-        <div class="title-Br-NewsRv"><a href="/products/<%= product.id %>"><%= product.title %></a>
-        </div>
-        <div class="Br-NewsRv-cont">
-          <%= product.desc %>
-        </div>
+       <% if !current_user.blank? && current_user.admin? %>
+       <%= link_to "- Add new product", "/products/new"%>
+       <% end %>
+
+     </div>
+
+     <% @products.each do |product| %>
+
+     <div class="list-Browse-NewsRv">
+      <div class="bl-image"><a href="/products/<%= product.id %>">
+        <img src="<%= product.img %>" />
+      </a>
+    </div>
+    <div class="price"><%= product.price %> Y
+      <div class="newest-datetime"><%= product.date %>
+        <% if !current_user.blank? && current_user.admin? %>
+        | <%= link_to "delete", product, method: :delete,
+        data: { confirm: "You sure delete product ?" } %>
+        <% end %>
+
       </div>
-      <% end %>
+    </div>
+    <div class="title-Br-NewsRv"><a href="/products/<%= product.id %>"><%= product.title %></a>
+    </div>
+    <div class="Br-NewsRv-cont">
+      <%= product.desc %>
     </div>
   </div>
+  <% end %>
 </div>
 
+
+
+</div>
+</div>
+
+<div class="clear"></div>
+<%= will_paginate @products %>
+<div class="clear"></div>

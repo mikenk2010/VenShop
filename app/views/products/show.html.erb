@@ -30,8 +30,11 @@
           <% end %>
             <span style="font-size:14px">
            <% if !current_user.blank? && current_user.admin? %>
+           <%= link_to "Edit", edit_product_path(@product.id) %> |
             <%= link_to "Delete", @product, method: :delete,
             data: { confirm: "You sure delete product ?" } %>
+
+
             <% end %>
           </span>
 
@@ -45,5 +48,6 @@
    <%=@product.desc%>
  </div>
 </div>
-
+</div>
+</div>
 

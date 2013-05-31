@@ -1,0 +1,41 @@
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <div class="headline-newest">Edit product</div>
+      <div class="list-Browse-NewsRv">
+
+
+       <div class="span6 offset3" style="margin-left:0px">
+        <%= form_for(@product) do |f| %>
+
+
+        <%= f.label :Title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :Price %>
+        <%= f.text_field :price %>
+
+        <%= f.label :Stock %>
+        <%= f.text_field :date %>
+
+        <%= f.label :Desc %>
+        <%= f.text_field :desc %>
+
+        <%= f.label :Image %>
+        <%= f.text_field :img %>
+
+      <%= f.label :Category %>
+
+        <%= f.collection_select(:categoryid, Category.all, :id, :name) %>
+
+
+        <%= f.submit "Update product", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
+
+
+
+    </div>
+  </div>
+</div></div>

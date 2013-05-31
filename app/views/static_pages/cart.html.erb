@@ -7,7 +7,7 @@
      <% else %>
      <div style="float:left; margin:right:10px; margin-bottom:-15px">
 
-      <%= form_tag '/checkout_show'  do %>
+      <%= form_tag checkouts_path  do %>
 
             <%= hidden_field_tag :id, @product.id %>
             <%= submit_tag "Checkout", class: "btn btn-large btn-primary" %>

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def new
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the VenShop!"
       UserMailer.welcome_email(@user).deliver
       redirect_to @user
     else
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :address)
   end
 
   def destroy

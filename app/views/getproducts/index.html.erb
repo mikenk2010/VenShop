@@ -12,10 +12,11 @@
          <div>
           <div>ID: <%= url['ProductId'] %></div>
           <div>Title: <%= url['Name'] %></div>
-          <div>Desc: <%= url['Description'] %></div>
-          <div>Image Medium: <%= url['Image']['Medium'] %></div>
+
+          <div>Image Medium: <img src="<%= url['Image']['Medium'] %>"/></div>
           <div>Price: <%= url['Price']['_value'] %> JPY</div>
-          <div>Cata ID: <%= url['Category']['Current']['Id'] %></div>
+  <div>Cata ID: <%= url['Category']['Current']['Id'] %></div>
+  <div>Cata name: <%= url['Category']['Current']['Name'] %></div>
           <div>Stock: <%= url['Availability'] %></div>
           <br>
           <span>--------------------</span>

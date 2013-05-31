@@ -5,7 +5,10 @@ class CategoryController < ApplicationController
   end
 
   def index
-    @category = Category.all
+    @category = Category.paginate(:page => params[:page], :per_page => 10)
+    @count = Product.count
+    # @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
+
     # @url = []
     # content = open("http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXpIMzBsMUQyTk55dSZkPVlXazlZWGxzYjNoWU0yVW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9MzI-&category_id=635&sort=-sold").read
     # result = JSON.parse(content)
@@ -19,14 +22,15 @@ class CategoryController < ApplicationController
     #   cate_id = category['Category']['Current']['Id']
     #   cate_name = category['Category']['Current']['Name']
     #   cates << [cate_id, cate_name]
-    end
-    # cates.uniq.each do |item|
-    #   Category.create(id: item[0], name: item[1])
+
+    #   cates.uniq.each do |item|
+    #     Category.create(id: item[0], name: item[1])
+    #     flash[:success] = "Success import date"
+    #   end
+    #   Category.create(id: cate_ids, name: name)
     #   flash[:success] = "Success import date"
     # end
-    # Category.create(id: cate_ids, name: name)
-    # flash[:success] = "Success import date"
-  # end
+  end
 
   def show
     @category = Category.find(params[:id])

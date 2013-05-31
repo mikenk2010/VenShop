@@ -16,8 +16,10 @@ VenShop::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  match '/products',    :to=> 'static_pages#products', via: 'get'
+  match '/products/new',    :to=> 'products#new',    via: 'get'
+
   match '/products/addtocart',    :to=> 'static_pages#products'
+
 
 
   match '/about',   :to=> 'static_pages#about'
@@ -32,8 +34,10 @@ VenShop::Application.routes.draw do
 
   match '/cart', :to=> 'static_pages#cart'
 
-  match '/checkout_show', to: 'checkouts#show'
-  match '/checkout_finish', to: 'checkouts#finish'
+  match '/checkouts', to: 'checkouts#hienthi'
+  match '/checkouts/create', to: 'checkouts#create'
+  #match '/checkout_finish', to: 'checkouts#finish'
+  match '/editproduct', to: 'products#edit'
 
 
 

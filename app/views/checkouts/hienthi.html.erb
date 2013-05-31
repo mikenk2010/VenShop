@@ -1,0 +1,43 @@
+<div class="header-search">
+</div>
+<div class="container-home">
+  <div class="items">
+    <div class="clear" />
+    <div class="newest">
+      <div class="headline-newest" style="color:#fff">Finish shopping </div>
+      <div style="margin-top:20px">
+
+       <%= form_tag '/checkouts/create', :method => :get do %>
+       <%= label_tag 'User ID'  %>
+       <%= text_field_tag :iduser, @checkout_user.id,:disabled=>true %>
+
+       <%= label_tag 'User Name'  %>
+       <%= text_field_tag :username, @checkout_user.name ,:disabled=>true%>
+
+       <%= label_tag 'User Email'  %>
+       <%= text_field_tag :useremail, @checkout_user.email ,:disabled=>true%>
+
+       <%= label_tag 'User address'  %>
+       <%= text_field_tag :useraddress, @checkout_user.address,:disabled=>true%>
+
+
+
+       <div style="margin-top:20px;font-size:15px;margin-bottom:10px;font-weight:bold">Your product detail</div>
+
+       <%= hidden_field_tag :id, @pro.id %>
+
+       <%= label_tag 'Product Name'  %>
+       <%= text_field_tag :productname, @pro.title , :disabled=>true%>
+
+       <%= hidden_field_tag :categoryid, @category.id %>
+
+       <%= label_tag 'Catelogy Name'  %>
+       <%= text_field_tag :categoryname, @category.name , :disabled=>true%>
+
+<%= submit_tag "Finish", class: "btn btn-large btn-primary"  %>
+
+       <% end %>
+     </div>
+   </div>
+ </div>
+</div>
