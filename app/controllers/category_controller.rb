@@ -5,8 +5,9 @@ class CategoryController < ApplicationController
   end
 
   def index
-    @category = Category.paginate(:page => params[:page], :per_page => 10)
+    #@category = Category.paginate(:page => params[:page], :per_page => 10)
     @count = Product.count
+    @category = Category.find :all
     # @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
 
     # @url = []
@@ -34,6 +35,10 @@ class CategoryController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @cateshow = Product.find_all_by_categoryid(params[:id])
+    @catecount = Product.find_all_by_categoryid(params[:id]).count
+    @posts = Product.where(:categoryid => params[:id]).paginate(:page => params[:page], :per_page => 10)
+
   end
 
   def destroy

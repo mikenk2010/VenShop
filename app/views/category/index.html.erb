@@ -2,26 +2,12 @@
   <div class="items">
     <div class="clear" />
     <div class="newest">
-      <div class="headline-newest">List all products - Cate</div>
-<%= will_paginate @category %>
-     <% @category.each do |product| %>
-      <div class="list-Browse-NewsRv">
-        <div class="bl-image"><a href="/item">
-          <img src="<%= product.img %>" />
-        </a>
-        </div>
-        <div class="price"><%= product.price %> Y
-          <div class="newest-datetime"><%= product.date %>
+      <div class="headline-newest">List all Cate</div>
+     <% @category.each do |cate| %>
 
+        <div class="title-Br-NewsRv"><a href="/category/<%= cate.id %>"><%= cate.name %></a>
+        </div>
 
-          </div>
-        </div>
-        <div class="title-Br-NewsRv"><a href="/products/<%= product.id %>"><%= product.title %></a>
-        </div>
-        <div class="Br-NewsRv-cont">
-          <%= product.desc %>
-        </div>
-      </div>
       <% end %>
     </div>
   </div>

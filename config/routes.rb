@@ -36,7 +36,7 @@ VenShop::Application.routes.draw do
 
   match '/checkouts', to: 'checkouts#hienthi'
   match '/checkouts/create', to: 'checkouts#create'
-  #match '/checkout_finish', to: 'checkouts#finish'
+  #match '/checkout_finish'ter, to: 'checkouts#finish'
   match '/editproduct', to: 'products#edit'
 
 
