@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-
     @product = Product.find (params[:id])
     if @product.update_attributes(params[:product])
      flash[:success] = "Product updated"
@@ -37,7 +36,6 @@ class ProductsController < ApplicationController
   if @count == 0
     flash[:success] = "Not found any products"
   end
-  flash[:note] = "Not found any product"
     @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     @count = @products.size
 end
@@ -63,9 +61,17 @@ def destroy
   redirect_to products_url
 end
 
-def addtocart
- flash[:success] = "Success add to cart"
-end
+ def add_to_cart
+    product = Product.find(params[:id])
+    @cart = find_cart
+    @cart.add_product(product)
+    redirect_to(:action => 'display_cart')
+  end
+
+  def display_cart
+    @cart = find_cart
+    @items = @cart.items
+  end
 
 private
 def product_params

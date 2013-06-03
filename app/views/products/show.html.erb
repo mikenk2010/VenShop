@@ -22,10 +22,10 @@
         <div class="item-id"></div></br>
         <div class="item-id-content">
 
-          <%= form_tag cart_path  do %>
+          <%= form_tag carts_path  do %>
           <p>
             <%= hidden_field_tag :id, @product.id %>
-            <%= submit_tag "Add to cart",class: "btn btn-large btn-primary" %>
+            <%= submit_tag "Add to cart", class: "btn btn-large btn-primary" %>
           </p>
           <% end %>
             <span style="font-size:14px">

@@ -1,10 +1,10 @@
 VenShop::Application.routes.draw do
 
-
+  resources :line_items
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :category
-
+  resources :carts
   resources :products
 
 
@@ -32,9 +32,9 @@ VenShop::Application.routes.draw do
 
   match '/getdata', to:'getproducts#index'
 
-  match '/cart', :to=> 'static_pages#cart'
+  #match '/carts', :to=> 'carts#new'
 
-  match '/carts', to: 'carts#index'
+
 
 
   match '/checkouts', to: 'checkouts#hienthi'

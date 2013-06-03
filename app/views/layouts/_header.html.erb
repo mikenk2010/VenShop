@@ -4,7 +4,7 @@
       <%= link_to "VENSHOP", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Your Cart", cart_path%></li>
+          <li><%= link_to "Your Cart", carts_path%></li>
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Product", products_path %></li>
           <% if signed_in? %>

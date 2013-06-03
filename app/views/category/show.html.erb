@@ -19,6 +19,13 @@
           | <%= link_to "delete", product, method: :delete,
           data: { confirm: "You sure delete product ?" } %>
           <% end %>
+          <br/>
+
+
+  <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+
+
+
         </div>
       </div>
       <div class="title-Br-NewsRv"><a href="/products/<%= product.id %>"><%= product.title %></a>
