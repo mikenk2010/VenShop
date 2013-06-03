@@ -5,6 +5,9 @@
      <% if params[:id].nil? %>
      <div class="title-search">Your don't have any item in cart</div>
      <% else %>
+      <div class="headline-newest" style="color:#fff">Your item</div>
+
+     <div style="color:red; font-size:14px;margin-top: 10px;margin-bottom: 10px;font-weight:bold">Total price: 123 Y</div>
      <div style="float:left; margin:right:10px; margin-bottom:-15px">
 
       <%= form_tag checkouts_path  do %>

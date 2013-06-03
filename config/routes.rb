@@ -34,6 +34,9 @@ VenShop::Application.routes.draw do
 
   match '/cart', :to=> 'static_pages#cart'
 
+  match '/carts', to: 'carts#index'
+
+
   match '/checkouts', to: 'checkouts#hienthi'
   match '/checkouts/create', to: 'checkouts#create'
   #match '/checkout_finish'ter, to: 'checkouts#finish'
